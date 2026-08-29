@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Family Ledger Tool</title>
+
+  <!-- PyScript CSS & JS -->
+  <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
+  <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <h1>Family Ledger Tool</h1>
+  <p>Running directly in your browser via Pyodide.</p>
+
+  <!-- Tell PyScript to load matplotlib & numpy -->
+  <script type="py" config='{"packages": ["matplotlib", "numpy"]}'>
+    import matplotlib.pyplot as plt
+    import numpy as np
+
+    # Your Python code goes here:
+    # Note: Traditional terminal input() is replaced by HTML inputs or standard Python variables.
+    
+    x = np.linspace(0, 10, 100)
+    y = np.sin(x)
+
+    fig, ax = plt.subplots()
+    ax.plot(x, y, label="Sample Ledger Curve")
+    ax.set_title("Family Ledger Output")
+    ax.legend()
+
+    # Display plot on the webpage
+    display(fig, target="plot-output")
+  </script>
+
+  <div id="plot-output"></div>
+</body>
+</html>
